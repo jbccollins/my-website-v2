@@ -15,15 +15,15 @@ export default function ResumePdfViewer() {
   const openModal = () => {
     if (dialogRef.current) {
       dialogRef.current.showModal();
-      setOpen(true);
     }
+    setOpen(true);
   };
 
   const closeModal = () => {
     if (dialogRef.current) {
       dialogRef.current.close();
-      setOpen(false);
     }
+    setOpen(false);
   };
 
   const handleDownload = async () => {
@@ -48,7 +48,7 @@ export default function ResumePdfViewer() {
   return (
     <>
       {open && (
-        <div className="backdrop-filter backdrop-blur-sm bg-black bg-opacity-50 fixed top-0 left-0 w-[100vw] h-[100vh]" />
+        <div className="backdrop-filter backdrop-blur-sm bg-black bg-opacity-75 fixed top-0 left-0 w-[100vw] h-[100vh]" />
       )}
       <div>
         <IconTextButton
@@ -61,9 +61,10 @@ export default function ResumePdfViewer() {
 
         <dialog
           ref={dialogRef}
-          className="w-full h-[calc(100%-44px)] bg-transparent "
+          className="w-full h-full bg-transparent"
+          onClose={closeModal}
         >
-          <div className="flex flex-col gap-4 w-full h-full">
+          <div className="flex flex-col gap-[22px] w-full h-full">
             <div className="flex justify-end gap-4">
               <IconTextButton
                 text="Download"
