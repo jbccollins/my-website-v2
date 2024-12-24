@@ -1,6 +1,6 @@
 "use client";
 
-import { DownloadIcon, FileIcon, XIcon } from "lucide-react";
+import { DownloadIcon, FileTextIcon, XIcon } from "lucide-react";
 import { useRef, useState } from "react";
 import IconTextButton from "./IconTextButton";
 import { Button } from "./ui/button";
@@ -51,12 +51,8 @@ export default function ResumePdfViewer() {
         <div className="backdrop-filter backdrop-blur-sm bg-black bg-opacity-75 fixed top-0 left-0 w-[100vw] h-[100vh]" />
       )}
       <div>
-        <IconTextButton
-          text="View Resume"
-          variant="default"
-          onClick={openModal}
-        >
-          <FileIcon size={16} />
+        <IconTextButton text="Resume" onClick={openModal}>
+          <FileTextIcon size={16} />
         </IconTextButton>
 
         <dialog
@@ -66,14 +62,10 @@ export default function ResumePdfViewer() {
         >
           <div className="flex flex-col gap-[22px] w-full h-full">
             <div className="flex justify-end gap-4">
-              <IconTextButton
-                text="Download"
-                variant="default"
-                onClick={handleDownload}
-              >
+              <IconTextButton text="Download" onClick={handleDownload}>
                 <DownloadIcon size={16} />
               </IconTextButton>
-              <Button variant="default" onClick={closeModal} size="icon">
+              <Button onClick={closeModal} size="icon">
                 <XIcon size={16} />
               </Button>
             </div>
