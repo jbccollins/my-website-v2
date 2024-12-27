@@ -110,6 +110,7 @@ const options: IParticlesProps["options"] = {
     scale: 0.8,
     type: "inline",
     // url: "https://particles.js.org/images/smalldeer.svg",
+    // SVG Generated from here: https://danmarshall.github.io/google-font-to-svg-path/
     url: "/particles/jc.svg",
   },
 };
