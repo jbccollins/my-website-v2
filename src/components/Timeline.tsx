@@ -233,15 +233,18 @@ export default function Timeline() {
 
             <div className="flex flex-col gap-4 w-full">
               <div className="flex flex-col gap-1">
-                <a
-                  href={item.companyWebsiteUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 hover:underline"
-                >
-                  <div className="text-2xl font-bold">{companyName}</div>
-                  <ExternalLinkIcon size={16} />
-                </a>
+                <div className="text-2xl font-bold inline-flex items-center gap-2">
+                  <a
+                    href={item.companyWebsiteUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 hover:underline"
+                  >
+                    {companyName}
+                    <ExternalLinkIcon size={16} />
+                  </a>
+                </div>
+
                 <div className="text-md font-bold">{title}</div>
                 <div className="text-sm">{date}</div>
               </div>
