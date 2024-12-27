@@ -3,97 +3,115 @@ import Particles, {
   IParticlesProps,
 } from "@tsparticles/react";
 import { useEffect, useState } from "react";
-// import { loadAll } from "@/tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+// import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+
+import { loadAll } from "@tsparticles/all";
 
 interface Props {
   id: string;
 }
 
 const options: IParticlesProps["options"] = {
-  background: {
-    // color: {
-    //   value: "#1E2F97",
-    // },
-  },
   fpsLimit: 60,
   interactivity: {
     events: {
-      // onClick: {
-      //   enable: true,
-      //   mode: "repulse",
-      // },
       onHover: {
         enable: true,
-        mode: "orbit",
+        mode: "bubble",
       },
     },
     modes: {
-      orbit: {
-        enable: true,
-        rotate: {
-          x: 600,
-          y: 1200,
-        },
-      },
-      attract: {
-        distance: 200,
-        duration: 10,
-        speed: 1,
-      },
-      repulse: {
-        distance: 50,
-        duration: 15,
-      },
-      push: {
-        distance: 200,
-        duration: 15,
-      },
-      grab: {
-        distance: 150,
+      bubble: {
+        distance: 40,
+        duration: 2,
+        opacity: 8,
+        size: 6,
+        speed: 3,
       },
     },
   },
   particles: {
-    color: {
-      value: "#FFFFFF",
-    },
-    // links: {
-    //   color: "#FFFFFF",
-    //   distance: 150,
-    //   enable: true,
-    //   opacity: 0.3,
-    //   width: 1,
+    // color: {
+    //   value: "#ff0000",
+    //   animation: {
+    //     enable: true,
+    //     speed: 20,
+    //     sync: true,
+    //   },
     // },
-    move: {
-      direction: "none",
+    color: {
+      value: "#ffffff",
+    },
+    links: {
+      blink: false,
+      // color: "random",
+      consent: false,
+      distance: 30,
       enable: true,
-      outModes: {
-        default: "bounce",
-      },
-      random: true,
-      speed: 1,
-      straight: false,
+      opacity: 0.3,
+      width: 0.5,
+    },
+    move: {
+      enable: true,
+      outModes: "bounce",
+      speed: { min: 0.5, max: 1 },
     },
     number: {
-      density: {
-        enable: true,
-      },
-      value: 500,
+      value: 200,
     },
     opacity: {
-      value: 1.0,
+      animation: {
+        enable: true,
+        speed: 2,
+        sync: false,
+      },
+      // random: false,
+      value: { min: 0.05, max: 1 },
     },
+    // shape: {
+    //   type: "circle",
+    // },
     shape: {
-      type: "circle",
+      type: "text",
+      options: {
+        text: {
+          font: "Verdana",
+          style: "",
+          weight: "bold",
+          value: "JC",
+        },
+      },
     },
     size: {
-      value: { min: 1, max: 3 },
+      animation: {
+        enable: false,
+        speed: 40,
+        sync: false,
+      },
+      //random: true,
+      value: { min: 0.1, max: 1 },
     },
   },
-  detectRetina: true,
+  polygon: {
+    draw: {
+      enable: true,
+      stroke: {
+        color: "#fff",
+        width: 0.3,
+        opacity: 0.2,
+      },
+    },
+    move: {
+      radius: 10,
+    },
+    inline: {
+      arrangement: "equidistant",
+    },
+    scale: 0.8,
+    type: "inline",
+    // url: "https://particles.js.org/images/smalldeer.svg",
+    url: "/particles/jc.svg",
+  },
 };
 
 const ParticlesComponent = (props: Props) => {
@@ -108,7 +126,7 @@ const ParticlesComponent = (props: Props) => {
       // starting from v2 you can add only the features you need reducing the bundle size
       //await loadAll(engine);
       //await loadFull(engine);
-      await loadSlim(engine);
+      await loadAll(engine);
       //await loadBasic(engine);
     }).then(() => {
       setInit(true);

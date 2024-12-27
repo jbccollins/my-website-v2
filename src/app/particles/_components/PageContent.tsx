@@ -50,7 +50,7 @@ export default function PageContent() {
       <div className="fixed inset-0 opacity-1">
         <Particles id="particles" />
       </div>
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+      {/* <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" /> */}
     </div>
   );
 }
