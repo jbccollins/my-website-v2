@@ -1,3 +1,5 @@
+"use client";
+
 import Particles, {
   initParticlesEngine,
   IParticlesProps,
@@ -7,17 +9,17 @@ import { useEffect, useState } from "react";
 
 import { loadAll } from "@tsparticles/all";
 
-interface Props {
-  id: string;
-}
-
 const options: IParticlesProps["options"] = {
   fpsLimit: 60,
+  detectRetina: true,
+  fullScreen: {
+    enable: false,
+  },
   interactivity: {
     events: {
       onHover: {
         enable: true,
-        mode: "bubble",
+        mode: ["bubble", "grab"],
       },
     },
     modes: {
@@ -25,36 +27,35 @@ const options: IParticlesProps["options"] = {
         distance: 40,
         duration: 2,
         opacity: 8,
-        size: 6,
+        size: 8,
         speed: 3,
+      },
+      grab: {
+        distance: 70,
       },
     },
   },
   particles: {
-    // color: {
-    //   value: "#ff0000",
-    //   animation: {
-    //     enable: true,
-    //     speed: 20,
-    //     sync: true,
-    //   },
-    // },
     color: {
       value: "#ffffff",
     },
     links: {
       blink: false,
-      // color: "random",
       consent: false,
-      distance: 30,
+      distance: 85,
       enable: true,
       opacity: 0.3,
       width: 0.5,
+      // triangles: {
+      //   enable: true,
+      //   color: "#ffffff",
+      //   opacity: 0.01,
+      // },
     },
     move: {
       enable: true,
       outModes: "bounce",
-      speed: { min: 0.5, max: 1 },
+      speed: { min: 0.1, max: 0.5 },
     },
     number: {
       value: 200,
@@ -65,7 +66,6 @@ const options: IParticlesProps["options"] = {
         speed: 2,
         sync: false,
       },
-      // random: false,
       value: { min: 0.05, max: 1 },
     },
     // shape: {
@@ -88,8 +88,7 @@ const options: IParticlesProps["options"] = {
         speed: 40,
         sync: false,
       },
-      //random: true,
-      value: { min: 0.1, max: 1 },
+      value: { min: 1, max: 1 },
     },
   },
   polygon: {
@@ -107,7 +106,7 @@ const options: IParticlesProps["options"] = {
     inline: {
       arrangement: "equidistant",
     },
-    scale: 0.8,
+    scale: 1,
     type: "inline",
     // url: "https://particles.js.org/images/smalldeer.svg",
     // SVG Generated from here: https://danmarshall.github.io/google-font-to-svg-path/
@@ -115,9 +114,7 @@ const options: IParticlesProps["options"] = {
   },
 };
 
-const ParticlesComponent = (props: Props) => {
-  const { id } = props;
-
+const ParticlesComponent = () => {
   const [init, setInit] = useState(false);
   // this should be run only once per application lifetime
   useEffect(() => {
@@ -135,10 +132,14 @@ const ParticlesComponent = (props: Props) => {
   }, []);
 
   if (!init) {
-    return null;
+    return <div className="relative w-full min-h-screen" />;
   }
 
-  return <Particles id={id} options={options} />;
+  return (
+    <div className="relative w-full min-h-screen fade-in">
+      <Particles id="particles" options={options} />
+    </div>
+  );
 };
 
 export default ParticlesComponent;

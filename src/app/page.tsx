@@ -2,12 +2,14 @@ import IconTextButtonLinks from "@/components/IconTextButtonLinks";
 import Timeline from "@/components/Timeline";
 import { yearsOfExperience } from "@/lib/utils";
 import Image from "next/image";
+import ParticlesComponent from "./particles/_components/Particles";
 
 const yoe = yearsOfExperience(2014);
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-24">
+      <ParticlesComponent />
       <div className="md:flex-row flex-col flex gap-4">
         <div className="w-[300px] h-[300px] rounded-full overflow-hidden flex-shrink-0 flex-grow-0 border-2 hidden md:block">
           <Image
