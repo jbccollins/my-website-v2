@@ -12,7 +12,7 @@ export default function Home() {
     <div className="flex flex-col gap-24">
       <div className="relative h-[calc(100vh-64px)] w-full">
         <ParticlesComponent />
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center items-end mb-4">
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center items-end mb-32">
           <Chevrons />
         </div>
       </div>
