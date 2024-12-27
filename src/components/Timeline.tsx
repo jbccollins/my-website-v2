@@ -1,6 +1,11 @@
 "use client";
 
-import { BriefcaseIcon, GraduationCapIcon, LucideProps } from "lucide-react";
+import {
+  BriefcaseIcon,
+  ExternalLinkIcon,
+  GraduationCapIcon,
+  LucideProps,
+} from "lucide-react";
 import Image from "next/image";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import Badge from "./Badge";
@@ -15,6 +20,7 @@ interface BadgeData {
 interface TimelineItem {
   title: string;
   companyName: string;
+  companyWebsiteUrl: string;
   description: string;
   date: string;
   imageUrl: string;
@@ -77,8 +83,9 @@ const timelineItems: TimelineItem[] = [
   {
     title: "Senior Software Engineer",
     companyName: "Tuff Shed",
+    companyWebsiteUrl: "https://tuffshed.com",
     description:
-      "As part of a small team of just two engineers at Tuff Shed, I built their high-traffic retail website (tuffshed.com) from the ground up using Next.js, with content served through the Storyblok CMS. I developed robust and secure backend APIs with .NET Core and Microsoft Entra, which power essential business functions such as product pricing, asset management, and business unit administration. I also automated and streamlined the deployment and management of Azure cloud infrastructure using Infrastructure as Code tools like Bicep and GitHub Actions. Additionally, I created custom solutions to integrate the company's core stack with external tools, including Salesforce and supply chain vendors.",
+      "As part of a small team of just two engineers at Tuff Shed, I built their high-traffic retail website (tuffshed.com) from the ground up using Next.js. I developed robust and secure backend APIs with .NET Core and Microsoft Entra, powering essential functions such as product pricing, asset management, and business unit administration. I automated and streamlined the deployment and management of Azure cloud resources using Infrastructure as Code tools like Bicep and GitHub Actions. Additionally, I created custom solutions to integrate the company's core stack with external tools, including Salesforce and supply chain vendors.",
     date: "2024 • Present",
     imageUrl: "/tuff-shed-logo-square.png",
     NodeIcon: BriefcaseIcon,
@@ -93,23 +100,36 @@ const timelineItems: TimelineItem[] = [
         text: "Bicep",
         imageUrl: "/technology-logos/bicep.png",
       },
+      {
+        text: "Storyblok",
+        imageUrl: "/technology-logos/storyblok.svg",
+      },
     ],
   },
   {
     title: "Senior Software Engineer",
     companyName: "Caribou",
+    companyWebsiteUrl: "https://caribou.com",
     description:
-      "Worked on the backend team building the API for a new product.",
+      "At Caribou, I designed and built internal APIs to integrate Caribou’s refinancing platform with third-party lenders, including Credit Karma and Uber. Additionally, I modernized the front-end of an existing Rails application by migrating it to a Next.js/React framework, which improved performance, scalability, and provided a more intuitive user interface.",
     date: "2022 • 2024",
     imageUrl: "/caribou-logo-square.png",
     NodeIcon: BriefcaseIcon,
-    badges: [...RAILS_BADGES, ...NEXTJS_BADGES],
+    badges: [
+      ...RAILS_BADGES,
+      ...NEXTJS_BADGES,
+      {
+        text: "Contentful",
+        imageUrl: "/technology-logos/contentful.svg",
+      },
+    ],
   },
   {
     title: "Software Engineer",
     companyName: "ZeroFox",
+    companyWebsiteUrl: "https://zerofox.com",
     description:
-      "Worked on the frontend team building the user interface for a new product.",
+      "At ZeroFox, I developed a high-throughput phishing detection tool to identify suspicious URLs and alert customers when their brands are impersonated online. Additionally, I collaborated on building a custom headless browser implementation to crawl and extract text and image data from websites for threat analysis.",
     date: "2021 • 2022",
     imageUrl: "/zerofox-logo-square.svg",
     imageBackgroundClassName: "bg-[rgb(19,30,41)]",
@@ -128,7 +148,9 @@ const timelineItems: TimelineItem[] = [
   {
     title: "Software Developer",
     companyName: "Fireside",
-    description: "Studied computer science and mathematics.",
+    companyWebsiteUrl: "https://fireside21.com",
+    description:
+      "At Fireside, I architected a custom messaging service to connect congressional staffers with constituents and agencies. Additionally, I developed mapping tools to selectively correspond with constituents based on their geographic location and upgraded several .NET applications to use a modern Angular front-end.",
     date: "2018 • 2021",
     imageUrl: "/fireside-logo-square.png",
     NodeIcon: GraduationCapIcon,
@@ -144,7 +166,9 @@ const timelineItems: TimelineItem[] = [
   {
     title: "Software Developer",
     companyName: "CATT Lab",
-    description: "Studied computer science and mathematics.",
+    companyWebsiteUrl: "https://www.cattlab.umd.edu/",
+    description:
+      "At The CATT Lab, I converted legacy Flash applications to modern React apps and created a custom tailored canvas-based rendering solution that greatly improved the scalability and performance of several map-based tools.",
     date: "2014 • 2018",
     imageUrl: "/catt-lab-logo-square.jpg",
     NodeIcon: GraduationCapIcon,
@@ -168,9 +192,11 @@ const timelineItems: TimelineItem[] = [
     ],
   },
   {
-    title: "Student",
+    title: "Bachelor of Science",
     companyName: "University of Maryland",
-    description: "Studied computer science and mathematics.",
+    companyWebsiteUrl: "https://umd.edu",
+    description:
+      "At the University of Maryland, I attained a Bachelor of Science in Computer Science with a minor in Astronomy.",
     date: "2012 • 2016",
     imageUrl: "/umd-logo-square.svg",
     imageBackgroundClassName: "bg-gray-700",
@@ -194,7 +220,7 @@ export default function Timeline() {
         } = item;
         const imageBGClass = imageBackgroundClassName || "bg-white";
         return (
-          <div key={date} className="flex gap-4 w-full">
+          <div key={date} className="md:flex-row flex flex-col gap-4 w-full">
             <div className="relative w-40 h-40 rounded-md flex-shrink-0 flex-grow-0">
               <Image
                 src={imageUrl}
@@ -207,7 +233,15 @@ export default function Timeline() {
 
             <div className="flex flex-col gap-4 w-full">
               <div className="flex flex-col gap-1">
-                <div className="text-2xl font-bold">{companyName}</div>
+                <a
+                  href={item.companyWebsiteUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 hover:underline"
+                >
+                  <div className="text-2xl font-bold">{companyName}</div>
+                  <ExternalLinkIcon size={16} />
+                </a>
                 <div className="text-md font-bold">{title}</div>
                 <div className="text-sm">{date}</div>
               </div>

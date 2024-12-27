@@ -1,13 +1,19 @@
 "use client";
 
+import { MailIcon } from "lucide-react";
 import Image from "next/image";
 import IconTextButton from "./IconTextButton";
 import ResumePdfViewer from "./ResumePdfViewer";
 
 export default function IconTextButtonLinks() {
   return (
-    <div className="flex items-center  gap-4">
+    <div className="flex items-center gap-4 flex-wrap">
       <ResumePdfViewer />
+      <a href="mailto:jbccollins@gmail.com">
+        <IconTextButton text="Email">
+          <MailIcon size={24} />
+        </IconTextButton>
+      </a>
       <a href="https://github.com/jbccollins" target="_blank" rel="noreferrer">
         <IconTextButton text="GitHub">
           <Image

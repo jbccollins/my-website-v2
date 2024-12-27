@@ -48,7 +48,7 @@ export default function ResumePdfViewer() {
   return (
     <>
       {open && (
-        <div className="backdrop-filter backdrop-blur-sm bg-black bg-opacity-75 fixed top-0 left-0 w-[100vw] h-[100vh]" />
+        <div className="backdrop-filter backdrop-blur-sm bg-black bg-opacity-75 fixed top-0 left-0 w-[100vw] h-[100vh] z-10" />
       )}
       <div>
         <IconTextButton text="Resume" onClick={openModal}>
@@ -57,7 +57,7 @@ export default function ResumePdfViewer() {
 
         <dialog
           ref={dialogRef}
-          className="w-full h-full bg-transparent"
+          className="w-full h-full bg-transparent "
           onClose={closeModal}
         >
           <div className="flex flex-col gap-[22px] w-full h-full">
