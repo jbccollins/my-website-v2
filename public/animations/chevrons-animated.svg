@@ -1,0 +1,35 @@
+<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .chevron {
+      fill: none;
+      stroke: white;
+      stroke-width: 12; /* Thicker stroke */
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    .chevron1 {
+      animation-delay: 0s;
+    }
+
+    .chevron2 {
+      animation-delay: 0.1s;
+    }
+
+    @keyframes pulse {
+      0%, 20%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      10% {
+        transform: translateY(10px);
+        opacity: 0.5;
+      }
+    }
+  </style>
+  <g transform="translate(50, 20)">
+    <path class="chevron chevron1" d="M-20 0 L0 15 L20 0" /> <!-- Wider and shallower chevron -->
+  </g>
+  <g transform="translate(50, 65)">
+    <path class="chevron chevron2" d="M-20 0 L0 15 L20 0" /> <!-- Wider and shallower chevron -->
+  </g>
+</svg>
