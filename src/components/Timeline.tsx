@@ -31,6 +31,11 @@ interface TimelineItem {
   badges: BadgeData[];
 }
 
+const POSTGRESQL_BADGE: BadgeData = {
+  text: "PostgreSQL",
+  imageUrl: "/technology-logos/postgresql.svg",
+};
+
 const DOTNET_BADGES: BadgeData[] = [
   {
     text: ".NET",
@@ -92,6 +97,7 @@ const timelineItems: TimelineItem[] = [
     badges: [
       ...DOTNET_BADGES,
       ...NEXTJS_BADGES,
+      POSTGRESQL_BADGE,
       {
         text: "Azure",
         imageUrl: "/technology-logos/azure.png",
@@ -143,6 +149,10 @@ const timelineItems: TimelineItem[] = [
         text: "Terraform",
         imageUrl: "/technology-logos/terraform.svg",
       },
+      {
+        text: "BigQuery",
+        imageUrl: "/technology-logos/bigquery.svg",
+      },
     ],
   },
   {
@@ -156,6 +166,7 @@ const timelineItems: TimelineItem[] = [
     NodeIcon: GraduationCapIcon,
     badges: [
       ...DOTNET_BADGES,
+      POSTGRESQL_BADGE,
       {
         text: "Angular",
         imageUrl: "/technology-logos/angular.svg",
@@ -181,6 +192,7 @@ const timelineItems: TimelineItem[] = [
         text: "Python",
         imageUrl: "/technology-logos/python.png",
       },
+      POSTGRESQL_BADGE,
       {
         text: "React",
         imageUrl: "/technology-logos/react.png",

@@ -33,12 +33,12 @@ export default function Chevrons() {
 
   return (
     <div
-      className={`chevrons opacity-75 cursor-pointer transition-opacity duration-500 ${
-        !showChevrons ? "opacity-0 pointer-events-none" : "opacity-100"
+      className={`chevrons cursor-pointer transition-opacity duration-500 ${
+        showChevrons ? "opacity-75" : "opacity-0 pointer-events-none"
       }`}
       onClick={handleChevronClick}
     >
-      <div className="fade-in">
+      <div>
         <Image
           src={
             animateChevrons

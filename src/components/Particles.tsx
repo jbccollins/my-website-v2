@@ -69,7 +69,7 @@ const ParticlesComponent = () => {
   const scale = Math.max(0.1, Math.min(1, dimensions.width / maxScalePixels));
 
   return (
-    <div className="relative w-full h-full fade-in overflow-hidden flex justify-center items-center">
+    <div className="relative w-full h-full overflow-hidden flex justify-center items-center">
       <div
         className="h-full min-w-[1080px]"
         style={{

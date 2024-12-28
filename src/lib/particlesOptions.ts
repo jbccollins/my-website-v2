@@ -92,7 +92,7 @@ const options: IParticlesProps["options"] = {
       },
     },
     move: {
-      radius: 10,
+      radius: 20,
     },
     inline: {
       arrangement: "equidistant",

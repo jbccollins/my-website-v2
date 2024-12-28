@@ -12,7 +12,7 @@ export default function Home() {
       <div className="relative h-[calc(100vh-64px)] w-full">
         <Hero />
       </div>
-      <div className="md:flex-row flex-col flex gap-4">
+      <div className="md:flex-row flex-col flex gap-16">
         <div className="w-[300px] h-[300px] rounded-full overflow-hidden flex-shrink-0 flex-grow-0 border-2 hidden md:block">
           <Image
             src="/james-profile-pic.jpg"
@@ -35,14 +35,14 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex flex-col gap-4">
-          <h1 className="text-2xl font-bold">Hi, I&apos;m James!</h1>
+        <div className="flex flex-col gap-8 justify-center">
+          <h1 className="text-2xl font-bold">Hello, I&apos;m James</h1>
           <div>
             I am a Senior Software Engineer with over {yoe} of experience
-            developing web-based applications powered by secure and efficient
-            APIs.
+            developing professional software solutions. From beautiful web
+            applications, to elegant backend APIs, to scalable cloud service
+            deployments, I have done it all.
           </div>
-
           <IconTextButtonLinks />
         </div>
       </div>
