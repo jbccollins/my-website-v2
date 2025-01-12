@@ -46,7 +46,7 @@ export default function Hero() {
         <div className="rounded-t-full pointer-events-none backdrop-filter backdrop-blur-sm">
           <div className="flex justify-center items-end">James Collins</div>
         </div>
-        <div className="rounded-t-lg pointer-events-none reflection backdrop-filter backdrop-blur-sm mt-[-16px] md:mt-[-30px]">
+        <div className="px-2 rounded-t-lg pointer-events-none reflection backdrop-filter backdrop-blur-sm mt-[-16px] md:mt-[-30px]">
           <div className="flex justify-center items-end">James Collins</div>
         </div>
       </div>
