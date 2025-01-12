@@ -16,11 +16,11 @@ const ParticlesComponent = () => {
     return produce(options, (draft) => {
       if (width < maxScalePixels) {
         draft!.interactivity!.events!.onHover!.enable = false;
-        draft!.particles!.number!.value = 100;
+        draft!.particles!.number!.value = 150;
         // @ts-expect-error idk why the compiler doesn't like .width
-        draft!.particles!.links!.width! = 2;
+        draft!.particles!.links!.width! = 1.8;
         // @ts-expect-error idk why the compiler doesn't like .opacity
-        draft!.particles!.links!.opacity! = 1;
+        draft!.particles!.links!.opacity! = 0.8;
       }
     });
   }, [width]);

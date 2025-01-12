@@ -42,15 +42,15 @@ export default function Hero() {
         }
       `}</style>
       <ParticlesComponent />
-      <div className="md:text-[60pt] text-3xl flex flex-col items-center justify-center absolute left-0 right-0 md:bottom-[35%] bottom-[45%]">
-        <div className="py-4 px-4 rounded-t-full pointer-events-none backdrop-filter backdrop-blur-sm">
+      <div className="md:text-[60pt] text-[36pt] flex flex-col items-center justify-center absolute left-0 right-0 md:bottom-[30%] bottom-[42%]">
+        <div className="rounded-t-full pointer-events-none backdrop-filter backdrop-blur-sm">
           <div className="flex justify-center items-end">James Collins</div>
         </div>
-        <div className="hidden md:block py-6 px-4 rounded-t-full pointer-events-none reflection backdrop-filter backdrop-blur-sm">
+        <div className="rounded-t-lg pointer-events-none reflection backdrop-filter backdrop-blur-sm mt-[-16px] md:mt-[-30px]">
           <div className="flex justify-center items-end">James Collins</div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center items-end mb-32">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center items-end md:mb-32 mb-40">
         <Chevrons />
       </div>
     </div>
