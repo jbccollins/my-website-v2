@@ -15,9 +15,12 @@ const ParticlesComponent = () => {
   const _options = useMemo(() => {
     return produce(options, (draft) => {
       if (width < maxScalePixels) {
-        if (draft?.interactivity?.events?.onHover) {
-          draft.interactivity.events.onHover.enable = false;
-        }
+        draft!.interactivity!.events!.onHover!.enable = false;
+        draft!.particles!.number!.value = 100;
+        // @ts-expect-error idk why the compiler doesn't like .width
+        draft!.particles!.links!.width! = 2;
+        // @ts-expect-error idk why the compiler doesn't like .opacity
+        draft!.particles!.links!.opacity! = 1;
       }
     });
   }, [width]);

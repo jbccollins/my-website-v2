@@ -1,12 +1,32 @@
 "use client";
 
+import { useIsMobile } from "@nextui-org/use-is-mobile";
+import { useEffect, useState } from "react";
 import Chevrons from "./Chevrons";
-import FadeOutOverlay from "./FadeOutOverlay";
 import ParticlesComponent from "./Particles";
 
 export default function Hero() {
+  const isMobile = useIsMobile();
+  // Mobile browsers change height when the address bar is shown/hidden
+  // this causes a weird jitter effect when you scroll and have a div with 100vh
+  // so we need to store the initial height and use it as the height of the div
+  const [initialHeight, setInitialHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (isMobile && typeof window !== "undefined") {
+      console.log("setting initial height");
+      setInitialHeight(window.innerHeight);
+    }
+  }, [isMobile]);
+
   return (
-    <div className="h-screen w-full select-none">
+    <div
+      className="w-full select-none"
+      style={{
+        height:
+          isMobile && initialHeight !== null ? `${initialHeight}px` : "100vh",
+      }}
+    >
       <style jsx>{`
         .reflection {
           transform: scaleY(-1); /* Flip the text vertically */
@@ -33,7 +53,6 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 flex justify-center items-end mb-32">
         <Chevrons />
       </div>
-      <FadeOutOverlay />
     </div>
   );
 }

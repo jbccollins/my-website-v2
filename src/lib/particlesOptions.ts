@@ -103,6 +103,6 @@ const options: IParticlesProps["options"] = {
     // SVG Generated from here: https://danmarshall.github.io/google-font-to-svg-path/
     url: "/particles/jc.svg",
   },
-};
+} as const;
 
 export default options;
