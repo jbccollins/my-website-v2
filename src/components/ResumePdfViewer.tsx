@@ -3,12 +3,12 @@
 import { DownloadIcon, FileTextIcon, XIcon } from "lucide-react";
 import { useRef, useState } from "react";
 import IconTextButton from "./IconTextButton";
-import { Button } from "./ui/button";
+import { Button, ButtonProps } from "./ui/button";
 
 const RESUME_PDF_URL =
   "https://ads0jzrxeixxduzl.public.blob.vercel-storage.com/james-collins-resume.pdf";
 
-export default function ResumePdfViewer() {
+export default function ResumePdfViewer(props: ButtonProps) {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [open, setOpen] = useState(false);
 
@@ -51,7 +51,7 @@ export default function ResumePdfViewer() {
         <div className="backdrop-filter backdrop-blur-sm bg-black bg-opacity-75 fixed top-0 left-0 w-[100vw] h-[100vh] z-10" />
       )}
       <div>
-        <IconTextButton text="Resume" onClick={openModal}>
+        <IconTextButton text="Resume" onClick={openModal} {...props}>
           <FileTextIcon size={16} />
         </IconTextButton>
 

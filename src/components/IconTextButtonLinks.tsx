@@ -7,15 +7,15 @@ import ResumePdfViewer from "./ResumePdfViewer";
 
 export default function IconTextButtonLinks() {
   return (
-    <div className="flex items-center gap-4 flex-wrap">
-      <ResumePdfViewer />
+    <div className="grid gap-4 grid-cols-2 lg:grid-cols-4 max-w-72 lg:flex lg:max-w-none sm:mx-0 mx-auto">
+      <ResumePdfViewer className="w-32" />
       <a href="mailto:jbccollins@gmail.com">
-        <IconTextButton text="Email">
+        <IconTextButton text="Email" className="w-32">
           <MailIcon size={24} />
         </IconTextButton>
       </a>
       <a href="https://github.com/jbccollins" target="_blank" rel="noreferrer">
-        <IconTextButton text="GitHub">
+        <IconTextButton text="GitHub" className="w-32">
           <Image
             src="/github-mark.png"
             alt="GitHub logo"
@@ -29,7 +29,7 @@ export default function IconTextButtonLinks() {
         target="_blank"
         rel="noreferrer"
       >
-        <IconTextButton text="LinkedIn">
+        <IconTextButton text="LinkedIn" className="w-32">
           <Image
             src="/linkedin-logo.svg"
             alt="LinkedIn logo"

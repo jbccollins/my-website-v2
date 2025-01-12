@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="py-4 px-4 rounded-t-full pointer-events-none backdrop-filter backdrop-blur-sm">
           <div className="flex justify-center items-end">James Collins</div>
         </div>
-        <div className="py-6 px-4 rounded-t-full pointer-events-none reflection backdrop-filter backdrop-blur-sm">
+        <div className="hidden md:block py-6 px-4 rounded-t-full pointer-events-none reflection backdrop-filter backdrop-blur-sm">
           <div className="flex justify-center items-end">James Collins</div>
         </div>
       </div>

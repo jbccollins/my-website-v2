@@ -220,7 +220,7 @@ const timelineItems: TimelineItem[] = [
 export default function Timeline() {
   // Alternating left and right alignment
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col md:gap-12 gap-16">
       {timelineItems.map((item) => {
         const {
           imageUrl,
@@ -230,35 +230,47 @@ export default function Timeline() {
           companyName,
           date,
         } = item;
-        const imageBGClass = imageBackgroundClassName || "bg-white";
+        const imageBGClass = imageBackgroundClassName || "bg-black";
+
+        const TitleText = () => (
+          <div className="flex flex-col gap-1">
+            <div className="text-2xl font-bold inline-flex items-center gap-2">
+              <a
+                href={item.companyWebsiteUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 hover:underline"
+              >
+                {companyName}
+                <ExternalLinkIcon size={16} />
+              </a>
+            </div>
+
+            <div className="text-md font-bold">{title}</div>
+            <div className="text-sm">{date}</div>
+          </div>
+        );
+
         return (
           <div key={date} className="md:flex-row flex flex-col gap-4 w-full">
-            <div className="relative w-40 h-40 rounded-md flex-shrink-0 flex-grow-0">
-              <Image
-                src={imageUrl}
-                alt={title}
-                fill
-                className={`${imageBGClass} object-contain rounded-md`}
-                sizes="200px"
-              />
+            <div className="flex gap-4">
+              <div className="relative md:w-40 md:h-40 h-20 w-20 rounded-md flex-shrink-0 flex-grow-0">
+                <Image
+                  src={imageUrl}
+                  alt={title}
+                  fill
+                  className={`${imageBGClass} object-contain rounded-md`}
+                  sizes="200px"
+                />
+              </div>
+              <div className="md:hidden">
+                <TitleText />
+              </div>
             </div>
 
             <div className="flex flex-col gap-4 w-full">
-              <div className="flex flex-col gap-1">
-                <div className="text-2xl font-bold inline-flex items-center gap-2">
-                  <a
-                    href={item.companyWebsiteUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 hover:underline"
-                  >
-                    {companyName}
-                    <ExternalLinkIcon size={16} />
-                  </a>
-                </div>
-
-                <div className="text-md font-bold">{title}</div>
-                <div className="text-sm">{date}</div>
+              <div className="hidden md:block">
+                <TitleText />
               </div>
               <div>{item.description}</div>
               <div className="flex gap-2 flex-wrap">
