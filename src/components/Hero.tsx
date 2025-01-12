@@ -42,7 +42,7 @@ export default function Hero() {
         }
       `}</style>
       <ParticlesComponent />
-      <div className="md:text-[60pt] text-3xl flex flex-col items-center justify-center absolute left-0 right-0 bottom-[35%]">
+      <div className="md:text-[60pt] text-3xl flex flex-col items-center justify-center absolute left-0 right-0 md:bottom-[35%] bottom-[45%]">
         <div className="py-4 px-4 rounded-t-full pointer-events-none backdrop-filter backdrop-blur-sm">
           <div className="flex justify-center items-end">James Collins</div>
         </div>
