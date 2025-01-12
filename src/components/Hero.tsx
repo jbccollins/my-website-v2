@@ -3,6 +3,7 @@
 import { useIsMobile } from "@nextui-org/use-is-mobile";
 import { useEffect, useState } from "react";
 import Chevrons from "./Chevrons";
+import FadeOutOverlay from "./FadeOutOverlay";
 import ParticlesComponent from "./Particles";
 
 export default function Hero() {
@@ -53,6 +54,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 flex justify-center items-end md:mb-32 mb-40">
         <Chevrons />
       </div>
+      <FadeOutOverlay />
     </div>
   );
 }
